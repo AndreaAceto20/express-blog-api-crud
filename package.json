@@ -1,0 +1,23 @@
+{
+  "name": "express-blog-api-crud",
+  "version": "1.0.0",
+  "description": "Esercitazione api moduli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaAceto20/express-blog-api-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreaAceto20/express-blog-api-crud/issues"
+  },
+  "homepage": "https://github.com/AndreaAceto20/express-blog-api-crud#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
