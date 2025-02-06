@@ -36,8 +36,23 @@ function modify(req, res) {
 
 function destroy(req, res) {
     const id = parseInt(req.params.id);
+    const post = posts.find(post => post.id === id);
+    if (!post) {
+
+        res.status(404);
+
+        return res.json({
+            error: "Non trovato",
+            message: "Post non trovato"
+        }
+        )
+    }
+
+    posts.splice(posts.indexOf(post), 1)
 
     res.sendStatus(204)
+    console.log(posts);
+
 
 }
 
