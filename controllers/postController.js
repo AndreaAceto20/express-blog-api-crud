@@ -54,7 +54,27 @@ function store(req, res) {
 }
 
 function update(req, res) {
-    res.send("modifica completa del post numero " + req.params.id)
+    // res.send("modifica completa del post numero " + req.params.id)
+    const id = parseInt(req.params.id);
+    const post = posts.find(post => post.id === id);
+    if (!post) {
+
+        res.status(404);
+
+        return res.json({
+            error: "Non trovato",
+            message: "Post non trovato"
+        }
+        )
+    }
+    post.titolo = req.body.titolo;
+    post.contenuto = req.body.contenuto;
+    post.img = req.body.img;
+    post.tags = req.body.tags;
+
+    res.json(posts);
+
+
 }
 
 function modify(req, res) {
