@@ -1,3 +1,4 @@
+const post = require("../data/postsData");
 const posts = require("../data/postsData")
 
 function index(req, res) {
@@ -23,7 +24,33 @@ function show(req, res) {
 
 function store(req, res) {
     // const id = parseInt(req.params.id);
-    res.send("creazione nuovo post");
+    // res.send("creazione nuovo post");
+
+    // seleziono l'ultimo post dell'array
+    const ultimoPost = posts[posts.length - 1];
+
+    // prendo l'id
+    const idUltimoPost = ultimoPost.id;
+
+    // creo id per il nuovo post
+    const nuovoId = idUltimoPost + 1;
+
+    // creo nuovo post
+    const nuovoPost = {
+        id: nuovoId,
+        titolo: req.body.titolo,
+        contenuto: req.body.contenuto,
+        img: req.body.img,
+        tags: req.body.tags,
+    };
+
+    posts.push(nuovoPost);
+
+    console.log(posts);
+
+    res.status(201);
+    res.json(nuovoPost);
+
 }
 
 function update(req, res) {
