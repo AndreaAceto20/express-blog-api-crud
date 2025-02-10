@@ -7,9 +7,9 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-const errorsHandler = require("./middlewares/errorsHandler");
+const errorsHandler = require("./middleware/errorsHandler");
 
-const notFound = require("./middlewares/notFound");
+const notFound = require("./middleware/notFound");
 
 
 app.get("/", (req, res) => {

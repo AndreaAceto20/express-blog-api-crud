@@ -2,6 +2,8 @@ const post = require("../data/postsData");
 const posts = require("../data/postsData")
 
 function index(req, res) {
+    // errore di prova
+    throw new Error("Errore di test");
     res.json(posts);
 }
 
