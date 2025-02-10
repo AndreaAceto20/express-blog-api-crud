@@ -7,6 +7,11 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
+const errorsHandler = require("./middlewares/errorsHandler");
+
+const notFound = require("./middlewares/notFound");
+
+
 app.get("/", (req, res) => {
     res.send("Server del mio blog");
 });
