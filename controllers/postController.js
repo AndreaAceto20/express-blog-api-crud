@@ -78,7 +78,31 @@ function update(req, res) {
 }
 
 function modify(req, res) {
-    res.send("modifica parziale del post numero " + req.params.id);
+    // res.send("modifica parziale del post numero " + req.params.id);
+    const id = parseInt(req.params.id);
+    const post = posts.find(post => post.id === id);
+    if (!post) {
+
+        res.status(404);
+
+        return res.json({
+            error: "Non trovato",
+            message: "Post non trovato"
+        }
+        )
+    }
+    // versione estesa
+    // if (req.body.titolo) {
+    //     post.titolo = req.body.titolo
+    // } else {
+    //     post.titolo = post.titolo
+    // }
+
+    //versione compatta 
+    req.body.titolo ? post.titolo = req.body.titolo : post.titolo = post.titolo;
+    req.body.contenuto ? post.contenuto = req.body.contenuto : post.contenuto = post.contenuto;
+    req.body.img ? post.img = req.body.img : post.img = post.img;
+    req.body.tags ? post.tags = req.body.tags : post.tags = post.tags;
 }
 
 function destroy(req, res) {
