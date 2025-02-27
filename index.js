@@ -2,10 +2,13 @@ const express = require(`express`);
 const app = express();
 const port = 3000;
 const postsRouter = require("./router/posts")
+var cors = require('cors')
 
 app.use(express.static('public'));
 
 app.use(express.json());
+
+app.use(cors({ origin: 'http://localhost:5173' }))
 
 const errorsHandler = require("./middleware/errorsHandler");
 
